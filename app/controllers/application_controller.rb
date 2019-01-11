@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
     #your code here
     puts "Trying to sign up"
     @user=User.create(username:@params[:username],password:@params[:password])
+    binding.pry
   end
 
   get '/account' do
