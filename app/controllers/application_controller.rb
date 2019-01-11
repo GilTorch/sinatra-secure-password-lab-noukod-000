@@ -20,8 +20,11 @@ class ApplicationController < Sinatra::Base
     #your code here
     puts "Trying to sign up"
     @user=User.create(username:@params[:username],password:@params[:password])
-    @user.username
-    binding.pry
+    if @user 
+      redirect('/login')
+    else 
+      redirect('/failure')
+    end
   end
 
   get '/account' do
